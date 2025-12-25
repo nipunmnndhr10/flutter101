@@ -93,28 +93,33 @@ class _MyHomePageState extends State<MyHomePage> {
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         child: Container(
-          height: double.infinity,
-          width: double.infinity,
-          margin: EdgeInsets.all(50.0),
-          padding: EdgeInsets.all(50.0),
-          margin: EdgeInsets.all(30.0),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(25.0),
-            color: Colors.red,
-          ),
-          child: Container(
-            height: double.infinity,
-            width: double.infinity,
-            padding: EdgeInsets.all(10.0),
-            // margin: EdgeInsets.all(30.0),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(25.0),
-              color: Colors.orange,
-            ),
-            child: Text(
-              "Hello, world!",
-              style: TextStyle(color: Colors.amberAccent),
-            ),
+          color: Colors.black,
+          // width: double.infinity,
+          child: Column(
+            mainAxisAlignment:
+                MainAxisAlignment.end, // won't work when below line is min
+            // crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min, // also centers the col vertically
+            children: [
+              Container(
+                height: 100.0,
+                width: 100.0,
+                // margin: EdgeInsets.all(10.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(25.0),
+                  color: Colors.red[400],
+                ),
+              ),
+              Container(
+                height: 100.0,
+                width: 100.0,
+                // margin: EdgeInsets.all(10.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(25.0),
+                  color: Colors.red[400],
+                ),
+              ),
+            ],
           ),
         ),
       ),
