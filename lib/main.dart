@@ -95,11 +95,12 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Container(
           color: Colors.black,
           // width: double.infinity,
-          child: Column(
-            mainAxisAlignment:
-                MainAxisAlignment.end, // won't work when below line is min
-            // crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min, // also centers the col vertically
+          height: double.infinity,
+          child: Row(
+            // mainAxisAlignment: MainAxisAlignment
+            //     .spaceEvenly, // won't work when below line is min
+            crossAxisAlignment: CrossAxisAlignment.start,
+            // mainAxisSize: MainAxisSize.min, // also centers the col vertically
             children: [
               Container(
                 height: 100.0,
