@@ -89,10 +89,42 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Image.asset(
-        'assets/images/wallp1.jpg',
-        height: double.infinity,
-        fit: BoxFit.cover,
+      body: Center(
+        // Center is a layout widget. It takes a single child and positions it
+        // in the middle of the parent.
+        child: Container(
+          color: Colors.black,
+          // width: double.infinity,
+          height: double.infinity,
+          child: Row(
+            // mainAxisAlignment: MainAxisAlignment.spaceEvenly, // won't work when below line is min
+            // crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min, // also centers the col vertically
+            children: [
+              Container(
+                height: 100.0,
+                width: 100.0,
+                // margin: EdgeInsets.all(10.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(25.0),
+                  color: Colors.red[400],
+                ),
+                child: Center(
+                  child: Text("This is text inside container as a child"),
+                ),
+              ),
+              Container(
+                height: 100.0,
+                width: 100.0,
+                // margin: EdgeInsets.all(10.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(25.0),
+                  color: Colors.red[400],
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
