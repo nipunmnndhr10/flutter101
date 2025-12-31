@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.dark,
         ),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Merry Christmas HOHOHO'),
     );
   }
 }
@@ -87,13 +87,62 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        title: Text(
+          widget.title,
+          style: const TextStyle(
+            fontSize: 15,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'Inter',
+          ),
+        ),
+        leading: Icon(
+          Icons.ac_unit_outlined,
+          color: Colors.amber[300],
+        ), //! add icon to the top right (leading) of the app
       ),
-      body: Image.asset(
-        'assets/images/wallp1.jpg',
-        height: double.infinity,
-        fit: BoxFit.cover,
-      ),
+      body:
+          // Padding(
+          //   padding: const EdgeInsets.all(8.0),
+          //   child: Stack(
+          //     children: [
+          //       // Image.asset(
+          //       //   'assets/images/876543.jpg',
+          //       //   // height: double.infinity,
+          //       //   // fit: BoxFit.cover,
+          //       //   height: 300,
+          //       // ),
+          //       SizedBox(
+          //         height: 300,
+          //         child: Center(
+          //           child: Text("This is text over the img using Stack"),
+          //         ),
+          //       ),
+          //       ListTile(
+          //         title: Text("this is ListTile's main title"),
+          //         tileColor: Colors.brown,
+          //         leading: Icon(Icons.account_box_rounded),
+          //         trailing: Text("This is trailing text"),
+          //         onTap: () => print("Clicked on ListTile"),
+          //         subtitle: Text("This is subtitle"),
+          //         isThreeLine: true,
+          //         // dense: true,
+          //       ),
+          //     ],
+          //   ),
+          // ),
+          Wrap(
+            children: [
+              Text(
+                "This is text written with Wrap widget, it makes everything wrap around the phone's screen ",
+              ),
+              Text(
+                "This is text written with Wrap widget, it makes everything wrap around the phone's screen ",
+              ),
+              Text(
+                "This is text written with Wrap widget, it makes everything wrap around the phone's screen ",
+              ),
+            ],
+          ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
