@@ -1,3 +1,6 @@
+import 'package:first_flutter_app/data/notifiers.dart';
+import 'package:first_flutter_app/views/widget_tree.dart';
+import 'package:first_flutter_app/widgets/navbar_widget.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,62 +17,39 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        // gives a dark teal bg of the Material App
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.teal,
-          brightness: Brightness.dark,
-        ),
-      ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Scaffold AppBar"),
-          centerTitle: true,
-          // leading: Icon(Icons.home),
-          // actions: [Text("Exit Action"), Icon(Icons.exit_to_app)],
-          // backgroundColor: Colors.teal,
-        ),
-        drawer: Drawer(
-          child: Column(
-            children: [
-              DrawerHeader(child: Text("Drawer Header in col")),
-              ListTile(title: Text("Logout")),
-            ],
+    return ValueListenableBuilder(
+      valueListenable: isDarkModeNotifier,
+      builder: (context, isDarkMode, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            // gives a dark teal bg of the Material App
+            colorScheme: ColorScheme.fromSeed(
+              seedColor: Colors.teal,
+
+              brightness: isDarkMode ? Brightness.dark : Brightness.light,
+            ),
           ),
-        ),
-        bottomNavigationBar: NavigationBar(
-          //! needs at least two destination to work
-          destinations: [
-            NavigationDestination(icon: Icon(Icons.home), label: "Home"),
-            NavigationDestination(icon: Icon(Icons.person), label: "Profile"),
-          ],
-          // below func will return the value that we've clicked
-          onDestinationSelected: (int value) {
-            print(value);
-          },
-          selectedIndex: 1,
-        ),
-        floatingActionButton: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            FloatingActionButton(
-              onPressed: () {
-                print("Floating action button2 pressed");
-              },
-              child: Icon(Icons.add),
-            ),
-            SizedBox(height: 10),
-            FloatingActionButton(
-              onPressed: () {
-                print("Floating action button1 pressed");
-              },
-              child: Icon(Icons.add),
-            ),
-          ],
-        ),
-      ),
+          home: MyHomePage(),
+        );
+      },
     );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  // can place args here - before the build
+  @override
+  // or can place args here - after build
+  //! till now each time we refresh the, we rebuild this widget
+  Widget build(BuildContext context) {
+    return WidgetTree();
   }
 }
